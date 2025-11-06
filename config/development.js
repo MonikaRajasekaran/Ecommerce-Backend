@@ -29,8 +29,7 @@ module.exports = {
   razor_api_key: process.env.RAZORPAY_API,
   razor_shared_secret: process.env.RAZORPAY_SECRET,
   daily_api_key: process.env.DAILY_API_KEY,
-  twilio_account_ssid: process.env.TWILIO_ACCOUNTSSID,
-  twilio_auth_token: process.env.TWILIO_AUTH_TOKEN,
+  
   srv: process.env.SRV,
   demo_mode: process.env.DEMO_MODE === 'true',
   email: {
