@@ -5,9 +5,10 @@ const crypto = require("crypto");
 let instance;
 (async () => {
   instance = new Razorpay({
-    key_id: decrypter.decrypt(config.extras.razor_api_key),
-    key_secret: decrypter.decrypt(config.extras.razor_shared_secret),
-  });
+  key_id: process.env.RAZORPAY_API || decrypter.decrypt(config.extras.razor_api_key),
+  key_secret: process.env.RAZORPAY_SECRET || decrypter.decrypt(config.extras.razor_shared_secret),
+});
+
 })();
 
 console.log(instance);
