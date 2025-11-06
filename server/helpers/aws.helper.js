@@ -15,7 +15,7 @@ const COGNITO_CLIENT = new AWS.CognitoIdentityServiceProvider({
 module.exports.createUser = (username, attributes, password, role) => {
     return new Promise((resolve, reject) => {
         var poolData = {
-            UserPoolId: process.env.COGNITO_USER_POOL_ID,
+            // UserPoolId: process.env.COGNITO_USER_POOL_ID,
             Username: username,
             TemporaryPassword: password,
             UserAttributes: [
@@ -51,7 +51,7 @@ module.exports.createUser = (username, attributes, password, role) => {
 module.exports.deleteUser = (username) => {
     return new Promise((resolve, reject) => {
         var poolData = {
-            UserPoolId: process.env.COGNITO_USER_POOL_ID,
+            // UserPoolId: process.env.COGNITO_USER_POOL_ID,
             Username: username,
         };
         COGNITO_CLIENT.adminDeleteUser(poolData, (error, data) => {
@@ -70,7 +70,7 @@ module.exports.updateGroup = (username, groupName) => {
         var poolData = {
             GroupName: groupName,
             Username: username,
-            UserPoolId: process.env.COGNITO_USER_POOL_ID
+            // UserPoolId: process.env.COGNITO_USER_POOL_ID
         };
         console.log(poolData);
         COGNITO_CLIENT.adminAddUserToGroup(poolData, (error, data) => {

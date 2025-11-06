@@ -29,6 +29,7 @@ const menu = require("./menu/routes/menuItem.routes");
 const order = require("./order/routes/order.routes");
 const profile=require("./userProfile/routes/profile.routes");
 const units = require("./units/routes/units.routes");
+const authUser = require("./authUser/routes/authUser.routes");
 
 /* End Requiring Different Modules for router */
 
@@ -100,7 +101,8 @@ router.use("/v1/employee", employee);
 router.use("/v1/categories", categories);
 router.use("/v1/menu", menu);
 router.use("/v1/order", order);
-router.use("/v1/profile", profile);
+router.use("/v1/profile", profile);      
 router.use("/v1/units", units);
+router.use("/v1/auth", authUser);
 /* End routing here */
 module.exports = router;

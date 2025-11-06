@@ -9,8 +9,7 @@ module.exports = {
     accessKeyId: process.env.AWS_KEY,
     secretAccessKey: process.env.AWS_SECRET,
     clientId: process.env.COGNITO_APP_CLIENT_ID,
-    userPoolId: process.env.COGNITO_USER_POOL_ID,
-    aws_region: process.env.AWS_REGION,
+    
     bucket: 'hil-commerce',
   },
   rekognition: {

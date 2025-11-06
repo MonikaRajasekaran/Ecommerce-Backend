@@ -14,7 +14,7 @@ const cors = require('cors');
 const sts = require('strict-transport-security');
 const protectConfig = require('protect-config');
 const accessCtrl = require('accessctrl');
-const cognito = require('../server/middleware/cognito.middleware');
+// const cognito = require('../server/middleware/cognito.middleware');
 const subscription = require('../server/middleware/subscription.middleware');
 const aclConfig = require('../acl.json');
 
@@ -23,7 +23,7 @@ const routes = require('../server/index');
 const unroute = require('./unsecured');
 const resources = require('../server/resources');
 const initAWS = require('./aws');
-const initCognito = require('./cognito');
+// const initCognito = require('./cognito');
 
 const globalSTS = sts.getSTS({
   'max-age': { days: 365 },
@@ -69,9 +69,9 @@ module.exports = (app, config) => {
     next();
   });
 
-  unroute.auth.forEach((route) => {
-    cognito.addUnsecureRoute(route.url, route.method, route.regex);
-  });
+  // unroute.auth.forEach((route) => {
+  //   cognito.addUnsecureRoute(route.url, route.method, route.regex);
+  // });
 
   const rank = [
     { role: 'STAFF', priority: 4 },
@@ -80,10 +80,10 @@ module.exports = (app, config) => {
     { role: 'ADMIN', priority: 1 },
   ];
   accessCtrl.initAcl(rank, aclConfig);
-  app.use(cognito.security);
-  app.use(cognito.accessRights());
-  app.use(initAWS());
-  app.use(initCognito());
+  // app.use(cognito.security);
+  // app.use(cognito.accessRights());
+  // app.use(initAWS());
+  // app.use(initCognito());
 
   // app.use(authSupport.security);
   // app.use(authSupport.accessRights());
