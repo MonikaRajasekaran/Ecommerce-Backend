@@ -1,0 +1,18 @@
+FROM node:18.13.0
+
+
+# Install PM2 manager globally
+RUN npm install -g pm2@4.2.1
+
+# Add codebase to the filesystem
+COPY . /var/www/html
+
+# Set the current working directory
+WORKDIR /var/www/html
+
+# Install dependencies
+RUN npm install
+
+CMD ["pm2-dev", "process-development.yml"]
+
+EXPOSE 3000

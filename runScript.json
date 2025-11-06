@@ -1,0 +1,8 @@
+{
+  "apps": [
+    {
+      "name": "influencer-service",
+      "script": "npm start"
+    }
+  ]
+}

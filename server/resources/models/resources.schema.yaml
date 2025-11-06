@@ -1,0 +1,48 @@
+components:
+  schemas:
+    CreateResourceRequest:
+      type: object
+      required:
+        - file
+        - category
+      properties:
+        file:
+          type: file
+          description: Resource file to upload.
+        category:
+          type: string
+          description: Resource Category Detail.
+      example:
+        file: cardArt.jpeg
+        category: CARD_ART
+
+    CreateResourceResponse:
+      type: object
+      required:
+        - url
+        - awsUrl
+        - createdBy
+        - category
+        - resourceId
+      properties:
+        url:
+          type: string
+          description: Resource URL, reference according to experience service.
+        awsUrl:
+          type: string
+          description: Resource Url, reference according to the AWS s3 bucket.
+        createdBy:
+          type: string
+          description: User who created this resource.
+        category:
+          type: string
+          description: Resource category string.
+        resourceId:
+          type: Array
+          description: Unique Resource ID, Internal Reference Id for the particular resource.
+      example:
+        url: http://localhost:5010/resources/development/profile/dHZW8-2BUH.jpeg
+        awsUrl: https://sg-config-resource.s3.ap-southeast-1.amazonaws.com/experiences/development/profile/cMTSz2nBv.jpeg
+        createdBy: px4kfz2li
+        category: profile
+        resourceId: dHZW8-2BUH

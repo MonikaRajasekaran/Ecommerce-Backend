@@ -1,0 +1,126 @@
+{
+  "swagger": "2.0",
+  "info": { "title": "base1", "version": "0.0.1", "description": "" },
+  "paths": {
+    "/api/v1/user": {
+      "post": {
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/user" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "items": { "$ref": "#/definitions/response" }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "items": { "$ref": "#/definitions/GetUser" }
+            }
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": ["User"],
+        "summary": "In this case &quot;apiUse&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "In this case &quot;apiUse&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.",
+            "required": true,
+            "schema": { "$ref": "#/definitions/PostUser" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "items": { "$ref": "#/definitions/PostUser" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "user": {
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "unique account user name"
+        },
+        "password": { "type": "string", "description": "account password" },
+        "roles": {
+          "type": "array",
+          "description": "series of roles",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["username", "password", "roles"]
+    },
+    "response": {
+      "properties": {
+        "userId": { "type": "string", "description": "userId of the User." },
+        "username": {
+          "type": "string",
+          "description": "username of the User."
+        },
+        "status": {
+          "type": "string",
+          "description": "status of the User e.g: ACTIVE/INACTIVE."
+        }
+      },
+      "required": ["userId", "username", "status"]
+    },
+    "GetUser": {
+      "properties": {
+        "userId": { "type": "string", "description": "userId of the User." },
+        "clientId": {
+          "type": "string",
+          "description": "clientId of the User."
+        },
+        "CardList": {
+          "type": "array",
+          "description": "CardList: list all the enrolled card Ids.",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["userId", "clientId", "CardList"]
+    },
+    "PostUser": {
+      "properties": {
+        "name": { "type": "string", "description": "Name of the User." },
+        "id": { "type": "string", "description": "The new Users-ID." }
+      },
+      "required": ["name", "id"]
+    }
+  }
+}

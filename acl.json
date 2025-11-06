@@ -1,0 +1,68 @@
+[
+  {
+    "group": "STAFF",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ],
+    "access": "*"
+  },
+  {
+    "group": "OWNER",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ],
+    "access": "*"
+  },
+  {
+    "group": "MANAGER",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ],
+    "access": "*"
+  },
+  {
+    "group": "ROOT",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ],
+    "access": "*"
+  },
+  {
+    "group": "USER",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ],
+    "access": "*"
+  },
+  {
+    "group": "ADMIN",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ],
+    "access": "*"
+  }
+]

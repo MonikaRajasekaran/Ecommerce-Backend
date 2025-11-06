@@ -1,0 +1,6 @@
+--silent
+--timeout 30000 
+--reporter spec
+--ui bdd
+--recursive
+--exit

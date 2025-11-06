@@ -1,0 +1,9 @@
+apps:
+  - script: npm start
+    name: visa_demo_experiences-api
+    exec_mode: fork
+    instances: 1
+    node_args: "--inspect=0.0.0.0:9229"
+    env:
+      NODE_ENV: development
+      PORT: 3000

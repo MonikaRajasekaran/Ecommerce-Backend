@@ -1,0 +1,46 @@
+const config = {
+  auth: [
+    { url: "/", method: ["GET"] },
+    { url: "/api/v1/regions", method: ["GET"] },
+    { url: /\/api\/docs/i, method: ["GET"], regex: true },
+    { url: '/api/v1/users/register', method: ['POST'] },
+    { url: '/api/v1/users/auth', method: ['POST'] },
+    { url: '/api/v1/users/auth/refresh', method: ['POST'] },
+    { url: '/api/v1/users/account/force/reset', method: ['POST'] },
+    { url: '/api/v1/users/account/code/verify', method: ['PATCH'] },
+    { url: '/api/v1/users/account/code/retry', method: ['POST'] },
+    { url: '/api/v1/users/forgot/password', method: ['POST'] },
+    { url: '/api/v1/users/reset/password', method: ['PATCH'] },
+    { url: '/api/v1/menu', method: ['GET'] },
+    { url: '/api/v1/categories', method: ['GET'],regex: true },
+    // { url: /^\/api\/v1\/region\/+[\s\S]+$/, method: ['GET'], regex: true },
+    // { url: '/api/payment/webhook', method: ['POST'] },
+  ],
+  subscription: [
+    { url: '/', method: ['GET'] },
+    { url: /\/api\/docs/i, method: ['GET'], regex: true },
+    { url: '/api/v1/users/register', method: ['POST'] },
+    { url: '/api/v1/users/auth', method: ['POST'] },
+    { url: '/api/v1/users/auth/refresh', method: ['POST'] },
+    { url: '/api/v1/users/account/force/reset', method: ['POST'] },
+    { url: '/api/v1/users/account/code/verify', method: ['PATCH'] },
+    { url: '/api/v1/users/account/code/retry', method: ['POST'] },
+    { url: '/api/v1/users/forgot/password', method: ['POST'] },
+    { url: '/api/v1/users/reset/password', method: ['PATCH'] },
+    { url: '/api/v1/hooks', method: ['POST'] },
+    { url: '/api/v1/organisation', method: ['POST'] },
+    { url: '/api/v1/organisation/mine', method: ['GET'] },
+    { url: /\/resources/i, method: ['GET'], regex: true },
+    {
+      url: "/api/v1/subscriptions",
+      method: ["GET", "POST", "PATCH"],
+      regex: false,
+    },
+    { url: '/api/v1/menu', method: ['GET'] },
+    { url: '/api/v1/categories', method: ['GET'],regex: true },
+    { url: /\/resources/i, method: ['GET'], regex: true },
+    { url: /\/authcheck\/status\/\w+/i, method: ['GET'], regex: true },
+  ]
+};
+
+module.exports = config;

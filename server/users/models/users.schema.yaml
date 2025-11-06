@@ -1,0 +1,309 @@
+components:
+  schemas:
+    CreateUserRequest:
+      type: object
+      required:
+        - username
+        - password
+        - firstName
+        - lastName
+      properties:
+        username:
+          type: string
+          description: Unique user identification string.
+        firstName:
+          type: string
+          description: User's first Name.
+        lastName:
+          type: string
+          description: User's last Name.
+        password:
+          type: string
+          description: Required for authentication, user has to provide the string, should have length of 8 characters and atleast 1 Uppercase, 1 Lowercase, 1 Numberic and 1 special character in it .
+      example:
+        username: testUser
+        firstName: Test
+        lastName: User
+        password: TestPass#123
+
+    CreateUserResponse:
+      type: object
+      required:
+        - username
+        - userId
+        - firstName
+        - lastName
+        - role
+        - isVerified
+        - isActive
+      properties:
+        userId:
+          type: string
+          description: Auto generated shortId for referencing.
+        username:
+          type: string
+          description: Unique user identification string.
+        firstName:
+          type: string
+          description: User's first Name.
+        lastName:
+          type: string
+          description: User's last Name.
+        role:
+          type: Array
+          description: User role, User may have multiple roles assigned to it. Based on the Role, user will different access permissions .
+        isVerified:
+          type: Boolean
+          description: Flag is to determine, whether this user is verified user or not.
+        isActive:
+          type: Boolean
+          description: Flag is to determine, whether this user is active user or not.
+      example:
+        userId: U74yuf7
+        firstName: Test
+        lastName: User
+        username: testUser
+        role: ["USER"]
+        isVerified: true
+        isActive: true
+
+    GetUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: Auto generated shortId for referencing.
+        username:
+          type: string
+          description: Unique user identification string.
+        firstName:
+          type: string
+          description: User's first Name.
+        lastName:
+          type: string
+          description: User's last Name.
+        role:
+          type: Array
+          description: User role, User may have multiple roles assigned to it. Based on the Role, user will different access permissions .
+        isVerified:
+          type: Boolean
+          description: Flag is to determine, whether this user is verified user or not.
+        isActive:
+          type: Boolean
+          description: Flag is to determine, whether this user is active user or not.
+        themeColor:
+          type: string
+          description: Color code of theme for the user.
+      example:
+        userId: U74yuf7
+        firstName: Test
+        lastName: User
+        username: testUser
+        role: ["USER"]
+        isVerified: true
+        isActive: true
+        themeColor: "#FF0011"
+
+    ConsumerAuthRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: Unique user identification string.
+        password:
+          type: string
+          description: Required for authentication, user has to provide the string, should have length of 8 characters and atleast 1 Uppercase, 1 Lowercase, 1 Numberic and 1 special character in it .
+      example:
+        username: testUser
+        password: TestPass#123
+
+    ConsumerAuthResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: Auto generated shortId for referencing.
+        token:
+          type: string
+          description: Auto generated shortId for referencing.
+        refreshToken:
+          type: string
+          description: Auto generated shortId for referencing.
+        username:
+          type: string
+          description: Unique user identification string.
+        firstName:
+          type: string
+          description: User's first Name.
+        lastName:
+          type: string
+          description: User's last Name.
+        role:
+          type: Array
+          description: User role, User may have multiple roles assigned to it. Based on the Role, user will different access permissions .
+        isVerified:
+          type: Boolean
+          description: Flag is to determine, whether this user is verified user or not.
+        isActive:
+          type: Boolean
+          description: Flag is to determine, whether this user is active user or not.
+        persona:
+          type: Array
+          description: Array of strings containg personas like EMPLOYER, CONSUMER etc.
+      example:
+        userId: U74yuf7
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJyb2xlIjoiW1wiVVNFUlwiXSIsInJlZ2lvbklkIjoiUnR5dWd1Z3V1IiwiaWF0IjoxNTkyMTk4NTg2LCJleHAiOjE1OTIxOTk0ODZ9.tS6hn6ycIxdAwX9-3GRrrDLQk0vISn8mhK8-BYY5lhk
+        refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJzaWduYXR1cmUiOiJlYTk1MTkwZjJmNWZlM2Y4ZDY2ODRjYWNmOTRhMGIwMSIsImlhdCI6MTU5MjE5ODU4NiwiZXhwIjoxNTk5OTc0NTg2fQ.JqG6rmq-wUQqosdTl6pgIfcqU4eBYvH4m3MCE-2w7fM
+        firstName: Test
+        lastName: User
+        username: testUser
+        role: ["USER"]
+        isVerified: true
+        isActive: true
+        persona: ['CONSUMER', 'EMPLOYER']
+
+    AdminAuthRequest:
+      type: object
+      required:
+        - username
+        - token
+        - password
+      properties:
+        username:
+          type: string
+          description: Unique user identification string.
+        token:
+          type: string
+          description: Unique HID Token.
+        password:
+          type: string
+          description: Required for authentication, user has to provide the string, should have length of 8 characters and atleast 1 Uppercase, 1 Lowercase, 1 Numberic and 1 special character in it .
+      example:
+        username: testUser
+        token: 87675544
+        password: TestPass#123
+
+    AdminAuthResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: Auto generated shortId for referencing.
+        token:
+          type: string
+          description: Auto generated shortId for referencing.
+        refreshToken:
+          type: string
+          description: Auto generated shortId for referencing.
+        username:
+          type: string
+          description: Unique user identification string.
+        firstName:
+          type: string
+          description: User's first Name.
+        lastName:
+          type: string
+          description: User's last Name.
+        role:
+          type: Array
+          description: User role, User may have multiple roles assigned to it. Based on the Role, user will different access permissions .
+        isVerified:
+          type: Boolean
+          description: Flag is to determine, whether this user is verified user or not.
+        isActive:
+          type: Boolean
+          description: Flag is to determine, whether this user is active user or not.
+      example:
+        userId: U74yuf7
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJyb2xlIjoiW1wiVVNFUlwiXSIsInJlZ2lvbklkIjoiUnR5dWd1Z3V1IiwiaWF0IjoxNTkyMTk4NTg2LCJleHAiOjE1OTIxOTk0ODZ9.tS6hn6ycIxdAwX9-3GRrrDLQk0vISn8mhK8-BYY5lhk
+        refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJzaWduYXR1cmUiOiJlYTk1MTkwZjJmNWZlM2Y4ZDY2ODRjYWNmOTRhMGIwMSIsImlhdCI6MTU5MjE5ODU4NiwiZXhwIjoxNTk5OTc0NTg2fQ.JqG6rmq-wUQqosdTl6pgIfcqU4eBYvH4m3MCE-2w7fM
+        firstName: Test
+        lastName: User
+        username: testUser
+        role: ["USER"]
+        isVerified: true
+        isActive: true
+
+    RefreshTokenRequest:
+      type: object
+      required:
+        - refreshToken
+        - token
+      properties:
+        refreshToken:
+          type: string
+          description: Unique user identification string.
+        token:
+          type: string
+          description: Required for authentication, user has to provide the string, should have length of 8 characters and atleast 1 Uppercase, 1 Lowercase, 1 Numberic and 1 special character in it .
+      example:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJyb2xlIjoiW1wiVVNFUlwiXSIsInJlZ2lvbklkIjoiUnR5dWd1Z3V1IiwiaWF0IjoxNTkyMTk4NTg2LCJleHAiOjE1OTIxOTk0ODZ9.tS6hn6ycIxdAwX9-3GRrrDLQk0vISn8mhK8-BYY5lhk
+        refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJzaWduYXR1cmUiOiJlYTk1MTkwZjJmNWZlM2Y4ZDY2ODRjYWNmOTRhMGIwMSIsImlhdCI6MTU5MjE5ODU4NiwiZXhwIjoxNTk5OTc0NTg2fQ.JqG6rmq-wUQqosdTl6pgIfcqU4eBYvH4m3MCE-2w7fM
+
+    RefreshTokenResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Auto generated shortId for referencing.
+        refreshToken:
+          type: string
+          description: Auto generated shortId for referencing.
+      example:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJyb2xlIjoiW1wiVVNFUlwiXSIsInJlZ2lvbklkIjoiUnR5dWd1Z3V1IiwiaWF0IjoxNTkyMTk4NTg2LCJleHAiOjE1OTIxOTk0ODZ9.tS6hn6ycIxdAwX9-3GRrrDLQk0vISn8mhK8-BYY5lhk
+        refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJZZ1kydzEyMmsiLCJzaWduYXR1cmUiOiJlYTk1MTkwZjJmNWZlM2Y4ZDY2ODRjYWNmOTRhMGIwMSIsImlhdCI6MTU5MjE5ODU4NiwiZXhwIjoxNTk5OTc0NTg2fQ.JqG6rmq-wUQqosdTl6pgIfcqU4eBYvH4m3MCE-2w7fM
+
+    UpdateUserRequest:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - profileUrl
+        - cardArt
+      properties:
+        firstName:
+          type: string
+          description: User's first name, should be a string.
+        lastName:
+          type: string
+          description: User's last name, should be a string
+        profileUrl:
+          type: string
+          description: profileUrl should be a image URL string.
+        cardArt:
+          type: string
+          description: cardArt should be a image URL string
+        themeColor:
+          type: string
+          description: Color code of theme for the user.
+      example:
+        firstName: demo
+        lastName: user
+        profileUrl: https://experience.staging.visainnovation.com/resources/experiences/development/PROFILE/EFrhCgaHM.jpeg
+        cardArt: https://experience.staging.visainnovation.com/resources/experiences/development/CARDART/o4rtRmL0F.png
+        themeColor: "#FF0011"
+
+    UpdateUserResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: status message
+      example:
+        message: Account has been updated successfully
+
+    DeleteUserResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: status message
+      example:
+        message: Account has been deleted successfully

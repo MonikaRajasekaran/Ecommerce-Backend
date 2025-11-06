@@ -1,0 +1,30 @@
+version: "3"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.development
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/node_modules
+    ports:
+      - "3000:3000"
+    links:
+      - mongo_api
+  nginx_api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-nginx.development
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-development.conf:/etc/nginx/nginx.conf
+    links:
+      - api
+    command: ["./wait-for-it.sh", "-t", "20", "api:3000", "--", "nginx", "-g", "daemon off;"]
+  mongo_api:
+    image: mongo:4.2
+    ports:
+      - "27017:27017"
+    volumes:
+      - ~/data/docker-mongo:/data/db

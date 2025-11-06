@@ -1,0 +1,11 @@
+FROM node:18.13.0
+
+
+# Add wait-for-it.sh to the filesystem
+COPY wait-for-it.sh /usr/local/bin/
+
+# Make it executable
+RUN chmod 777 /usr/local/bin/wait-for-it.sh
+
+# Set the current working directory
+WORKDIR /usr/local/bin/
