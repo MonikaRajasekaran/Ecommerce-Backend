@@ -15,7 +15,7 @@ const sts = require('strict-transport-security');
 const protectConfig = require('protect-config');
 const accessCtrl = require('accessctrl');
 // const cognito = require('../server/middleware/cognito.middleware');
-const subscription = require('../server/middleware/subscription.middleware');
+// const subscription = require('../server/middleware/subscription.middleware');
 const aclConfig = require('../acl.json');
 
 /* Internal files or modules */
@@ -105,7 +105,7 @@ module.exports = (app, config) => {
   app.use(compress());
   app.use(express.static(`${config.root}/public`));
   app.use(methodOverride());
-  app.use(subscription.verify(unroute.subscription))
+  // app.use(subscription.verify(unroute.subscription))
   /*
     Localisation configuration:
     This takes locales to be supported. en will be our default locale.
